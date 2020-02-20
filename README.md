@@ -1,2 +1,2 @@
-# openbanking
+# OpBank
 Open Banking API
