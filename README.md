@@ -1,2 +1,2 @@
-# OpBank
-Open Banking API
+# BankingHub
+Banking Hub
