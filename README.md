@@ -1,2 +1,2 @@
-# BankingHub
+# Banking Hub
 Banking Hub
