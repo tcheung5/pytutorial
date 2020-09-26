@@ -1,5 +1,8 @@
 # First Python Project
-a, b =0,1
-while a<10:
-    print(a)
-    a, b=b, a+
+from Container import *
+
+container1 = Container("OOCL", "Clothes")
+container2 = Container("Maserak", "Electronics")
+container3 = Container("AML", "Foods")
+
+container4 = Container._create_empty_container("BML")
