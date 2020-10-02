@@ -1,6 +1,6 @@
 # 
 # 
-# Container class
+# Container class in Docker file containered
 #
 #
 
