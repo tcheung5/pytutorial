@@ -3,7 +3,6 @@
 # Container class in Docker file containered
 #
 #
-
 import iso6346
 class Container:
 
@@ -14,6 +13,13 @@ class Container:
         result = Container.next_serial
         Container.next_serial += 1
         return result
+
+    @staticmethod
+    def _make_bic_code(owner_code, serial):
+        return iso6346.create(
+            owner_code = owner_code,    
+            serial = str(serial).zfill(6)
+        )
 
     @classmethod
     def _create_empty_container(cls, company_name):
@@ -26,10 +32,17 @@ class Container:
     def __init__(self, company_name, container_contents):
         self.company_name = company_name
         self.container_contents = container_contents
-        self.container_serial = Container._generate_serial()
+        #self.container_serial = Container._generate_serial()
+        self.bic_code = Container._make_bic_code(
+            owner_code=company_name, 
+            serial=Container._generate_serial()
+        )
+        self.whatevervalue = "whatever goes here"
 
         print("==========================================")
-        print("Container Name: " + company_name)
-        print("Container Contenets: " + str(container_contents))
-        print("Container Serial Number: " +  str(self.container_serial))
+        print("Container Name: " + self.company_name)
+        print("Container Contenets: " + str(self.container_contents))
+        #print("Container Serial Number: " +  str(self.container_serial))
+        print("Container Serial Number: " + self.bic_code)
+        print("Whatever variable:" + self.whatevervalue)
         print("==========================================")
