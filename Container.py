@@ -1,9 +1,12 @@
-# 
-# 
+#
+#
 # Container class in Docker file containered
 #
 #
 import iso6346
+import math
+import tensorflow
+
 class Container:
 
     next_serial = 1000
@@ -17,8 +20,8 @@ class Container:
     @staticmethod
     def _make_bic_code(owner_code, serial):
         return iso6346.create(
-            owner_code = owner_code,    
-            serial = str(serial).zfill(6)
+            owner_code=owner_code,
+            serial=str(serial).zfill(6)
         )
 
     @classmethod
@@ -34,7 +37,7 @@ class Container:
         self.container_contents = container_contents
         #self.container_serial = Container._generate_serial()
         self.bic_code = Container._make_bic_code(
-            owner_code=company_name, 
+            owner_code=company_name,
             serial=Container._generate_serial()
         )
         self.whatevervalue = "whatever goes here"
